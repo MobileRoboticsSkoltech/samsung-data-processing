@@ -35,7 +35,7 @@ def reproject_depth(depth_undistorted, original_camera, new_camera, T_original2n
     
     reprojected_depth = __project_pc_to_depth(pcd, new_camera)
     
-    return reprojected_depth
+    return reprojected_depth.astype(np.uint16)
 
 def undistort_image(image, camera):
     return cv2.remap(image, camera.map_x_undist, camera.map_y_undist, cv2.INTER_NEAREST)
